@@ -4,3 +4,7 @@
     1. qmake -project -- Create .pro file
     2. qmake          -- Create .qmake.stash and Makefile
     3. make           -- Make project
+
+  .pro file:
+
+    QT += core gui widgets
