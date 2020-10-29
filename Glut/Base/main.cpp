@@ -1,10 +1,9 @@
 #include <GL/glut.h>
+#include <string>
 
 /* g++ <file_name> -lGL -lGLU -lglut */
 
 using namespace std;
-
-void Draw(void);
 
 #include "Data/Display.h"
 #include "Data/Graphics.h"

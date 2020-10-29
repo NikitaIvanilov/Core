@@ -6,6 +6,8 @@ GLint
   DisplayHeight    = 400,
   DisplayPixelSize = 8;
 
+void Draw(void);
+
 void DisplayPrint(void){
 
   glClearColor(0, 0, 0, 1);
