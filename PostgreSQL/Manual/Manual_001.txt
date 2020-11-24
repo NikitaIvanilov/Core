@@ -1,0 +1,38 @@
+
+  ################################################################################
+
+  Data types: https://postgrespro.ru/docs/postgresql/9.4/datatype
+
+  SELECT: https://postgrespro.ru/docs/postgresql/13/queries-select-lists
+  UPDATE: https://postgrespro.ru/docs/postgresql/13/dml-update
+  INSERT: https://postgrespro.ru/docs/postgresql/13/dml-insert
+  DELETE: https://postgrespro.ru/docs/postgresql/13/dml-delete
+
+  ################################################################################
+
+  Enter in postgres user:
+
+    sudo -iu postgres
+
+  Launch Daemon:
+
+    sudo systemctl start postgresql
+
+  Init Data Base:
+
+    initdb -D /var/lib/postgres/data
+
+  Launch PostgreSQL Terminal:
+
+    psql
+
+    https://postgrespro.ru/docs/postgresql/9.6/app-psql
+
+  ################################################################################
+
+  \c <data_base> - connect
+  \l             - list
+  \! <command>   - execute; exit if no command
+  \q             - quit
+
+  ################################################################################

@@ -1,0 +1,5 @@
+interface Equipment{
+
+  void run();
+
+}
