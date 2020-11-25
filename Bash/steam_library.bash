@@ -1,28 +1,31 @@
 #!/bin/bash
 
-data_path="/path/to/Steam/steamapps"
-data=( $(ls $data_path | grep -e "app") )
+installdir=( $(cat appmanifest/* | grep -e "installdir" | cut -d \" -f 4 | tr " " "#") )
+     appid=( $(cat appmanifest/* | grep -e "appid"      | cut -d \" -f 4) )
+      name=( $(cat appmanifest/* | grep -e "name"       | cut -d \" -f 4 | tr " " "#") )
 
-echo "+-----------------------------------------------\
-+--------+--------------------------------------------+"
+function strip {
 
-printf '| %-45s\t| %-6s | %-42s |\n' "name" "appid" "installdir"
+  for (( i = 0; i < 113; ++i )); do
 
-echo "+-----------------------------------------------\
-+--------+--------------------------------------------+"
+    if   (( i ==   0 )); then printf "+"
+    elif (( i ==  48 )); then printf "+"
+    elif (( i ==  61 )); then printf "+"
+    elif (( i == 112 )); then printf "+"
+    else                      printf "-"; fi
 
-for i in "${data[@]}"; do
+  done
 
-        name=$(cat $data_path/$i | grep -e "\"name\""       | cut -d \" -f 4)
-       appid=$(cat $data_path/$i | grep -e "\"appid\""      | cut -d \" -f 4)
-  installdir=$(cat $data_path/$i | grep -e "\"installdir\"" | cut -d \" -f 4)
+  printf "\n"
 
-  printf '| %-42s\t| %-6s | %-42s |\n' "$name" "$appid" "$installdir" >> /tmp/steam_list.txt
+}
+
+strip
+
+for (( i = 0; i < "${#installdir[@]}"; ++i )); do
+
+  printf "| %-45.45s | %-10.10s | %-45.45s\t|\n" ${installdir[$i]} ${appid[$i]} ${name[$i]} | tr "#" " "
 
 done
 
-cat /tmp/steam_list.txt | sort
-rm /tmp/steam_list.txt
-
-echo "+-----------------------------------------------\
-+--------+--------------------------------------------+"
+strip
