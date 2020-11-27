@@ -1,8 +1,8 @@
 #!/bin/bash
 
-installdir=( $(cat appmanifest/* | grep -e "installdir" | cut -d \" -f 4 | tr " " "#") )
-     appid=( $(cat appmanifest/* | grep -e "appid"      | cut -d \" -f 4) )
-      name=( $(cat appmanifest/* | grep -e "name"       | cut -d \" -f 4 | tr " " "#") )
+installdir=( $(cat appmanifest/* | grep -e \"installdir\" | cut -d \" -f 4 | tr " " "#") )
+     appid=( $(cat appmanifest/* | grep -e \"appid\"      | cut -d \" -f 4 ) )
+      name=( $(cat appmanifest/* | grep -e \"name\"       | cut -d \" -f 4 | tr " " "#") )
 
 function strip {
 
