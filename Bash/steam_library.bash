@@ -4,6 +4,8 @@ installdir=( $(cat appmanifest/* | grep -e \"installdir\" | cut -d \" -f 4 | tr 
      appid=( $(cat appmanifest/* | grep -e \"appid\"      | cut -d \" -f 4 ) )
       name=( $(cat appmanifest/* | grep -e \"name\"       | cut -d \" -f 4 | tr " " "#") )
 
+temp="/tmp/steam_library.temp"
+
 function strip {
 
   for (( i = 0; i < 113; ++i )); do
@@ -20,12 +22,20 @@ function strip {
 
 }
 
-strip
-
 for (( i = 0; i < "${#installdir[@]}"; ++i )); do
 
-  printf "| %-45.45s | %-10.10s | %-45.45s\t|\n" ${installdir[$i]} ${appid[$i]} ${name[$i]} | tr "#" " "
+  printf "| %-45.45s | %-10.10s | %-45.45s\t|\n" ${installdir[$i]} ${appid[$i]} ${name[$i]} | tr "#" " " >> $temp
 
 done
 
 strip
+
+printf "| %-45.45s | %-10.10s | %-45.45s\t|\n" "installdir" "appid" "name"
+
+strip
+
+cat $temp | sort
+
+strip
+
+rm $temp
