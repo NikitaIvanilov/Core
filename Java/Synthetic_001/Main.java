@@ -24,13 +24,17 @@ public class Main{
 
     fill.run(10, 100); // (array size, random range)
 
-    System.out.printf("\nRaw output:\n");
+    System.out.printf("Raw output:\n");
     print.run(3); // End of line per 3 numbers
 
     sort.quickSorting();
 
     System.out.printf("\n\nSorted:\n");
     print.run(3);
+
+    System.out.printf("\n\nPrime numbers:\n ");
+
+    System.out.print(search.getPrimeNumber());
 
     System.out.printf("\n\n Minimum: %d\n Medium: %d\n Maximum: %d\n\n",
 

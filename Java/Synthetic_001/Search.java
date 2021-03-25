@@ -10,6 +10,40 @@ public class Search<A extends ArrayList<Integer>>{
 
   }
 
+  public ArrayList<Integer> getPrimeNumber(){
+
+    ArrayList<Integer> arrayOutput = new ArrayList<>();
+    boolean primeNumber;
+
+    for(Integer current : array){
+
+      if(current < 2)
+
+        continue;
+
+      primeNumber = true;
+
+      for(Integer check = 2; check < current; ++check){
+
+        if(current % check == 0){
+
+          primeNumber = false;
+          break;
+
+        }
+
+      }
+
+      if(primeNumber)
+
+        arrayOutput.add(current);
+
+    }
+
+    return arrayOutput;
+
+  }
+
   public int getMaximum(){
 
     Integer maximum = 0;
