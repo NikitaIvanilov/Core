@@ -1,0 +1,16 @@
+plugins { id 'java' } // Include Java
+
+group 'gradle'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8 // Java version
+
+repositories { mavenCentral() } // Include Maven Repository
+
+dependencies {
+
+    implementation 'org.springframework:spring-core:5.3.8'
+    implementation 'org.springframework:spring-context:5.3.8'
+    implementation 'org.springframework:spring-beans:5.3.8'
+
+}
